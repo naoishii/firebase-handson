@@ -59,17 +59,6 @@ export default class FormDialog extends React.Component {
               Google認証
             </Button>
             <Divider />
-
-            <DialogContentText>なまえをいれてね</DialogContentText>
-            <TextField
-              value={this.state.username}
-              onChange={this.handleChange}
-              autoFocus
-              margin="dense"
-              id="name"
-              label="username"
-              fullWidth
-            />
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">

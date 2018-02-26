@@ -8,6 +8,8 @@ const mapStateToProps = state => {
   return {
     chat: state.chat,
     username: state.user.username,
+    isLogedIn: state.user.isLogedIn,
+    uid: state.user.uid,
   };
 };
 

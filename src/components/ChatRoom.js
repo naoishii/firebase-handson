@@ -26,6 +26,8 @@ class ChatRoom extends Component {
         </List>
         <LoginModal isLogedIn={this.state.isLogedIn} />
         {this.props.username}
+        {this.props.isLogedIn}
+        {this.props.uid}
         <CommentInput />
       </div>
     );

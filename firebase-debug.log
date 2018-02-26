@@ -1,0 +1,13 @@
+[debug] [2018-02-26T07:33:04.794Z] ----------------------------------------------------------------------
+[debug] [2018-02-26T07:33:04.796Z] Command:       /Users/naoishii/.anyenv/envs/ndenv/versions/v8.5.0/bin/node /Users/naoishii/.anyenv/envs/ndenv/versions/v8.5.0/bin/firebase deploy --only hosting
+[debug] [2018-02-26T07:33:04.796Z] CLI Version:   3.17.4
+[debug] [2018-02-26T07:33:04.796Z] Platform:      darwin
+[debug] [2018-02-26T07:33:04.796Z] Node Version:  v8.5.0
+[debug] [2018-02-26T07:33:04.797Z] Time:          Mon Feb 26 2018 16:33:04 GMT+0900 (JST)
+[debug] [2018-02-26T07:33:04.797Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-02-26T07:33:04.808Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-02-26T07:33:04.808Z] > authorizing via signed-in user
+[debug] [2018-02-26T07:33:04.809Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/senkou-58864  
+  
+ Mon Feb 26 2018 16:33:04 GMT+0900 (JST)

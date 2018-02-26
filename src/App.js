@@ -4,10 +4,13 @@ import logo from './logo.svg';
 
 import ChatRoom from './containers/ChatRoom';
 import createStore from './createStore';
+import { connectFirebase } from './firebase';
+
+const store = createStore();
+connectFirebase(store);
 
 class App extends Component {
   render() {
-    const store = createStore();
     return (
       <Provider store={store}>
         <div className="App">

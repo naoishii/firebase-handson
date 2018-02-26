@@ -7,6 +7,8 @@ import Dialog, {
   DialogContentText,
   DialogTitle,
 } from 'material-ui/Dialog';
+import Icon from 'material-ui/Icon';
+import Divider from 'material-ui/Divider';
 
 export default class FormDialog extends React.Component {
   constructor(props) {
@@ -19,6 +21,9 @@ export default class FormDialog extends React.Component {
     };
   }
 
+  handleOpen = () => {
+    this.setState({ open: true });
+  };
   handleClose = () => {
     this.setState({ open: false });
     this.props.updateUsername(this.state.username);
@@ -30,12 +35,26 @@ export default class FormDialog extends React.Component {
   render() {
     return (
       <div>
+        <Button variant="raised" color="secondary" onClick={this.handleOpen}>
+          ユーザ情報
+          <Icon>people</Icon>
+        </Button>
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}
           aria-labelledby="form-dialog-title">
           <DialogTitle id="form-dialog-title">Login</DialogTitle>
           <DialogContent>
+            <Button
+              variant="raised"
+              color="secondary"
+              onClick={() => this.props.anonymousLogin()}>
+              匿名認証
+              <Icon>face</Icon>
+            </Button>
+
+            <Divider />
+
             <DialogContentText>なまえをいれてね</DialogContentText>
             <TextField
               value={this.state.username}

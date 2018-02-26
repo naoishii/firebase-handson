@@ -9,12 +9,22 @@ import Dialog, {
 } from 'material-ui/Dialog';
 
 export default class FormDialog extends React.Component {
-  state = {
-    open: !this.props.isLogedIn,
-  };
+  constructor(props) {
+    super(props);
+
+    console.log(props);
+    this.state = {
+      open: !this.props.isLogedIn,
+      username: this.props.username,
+    };
+  }
 
   handleClose = () => {
     this.setState({ open: false });
+    this.props.updateUsername(this.state.username);
+  };
+  handleChange = e => {
+    this.setState({ username: e.target.value });
   };
 
   render() {
@@ -28,6 +38,8 @@ export default class FormDialog extends React.Component {
           <DialogContent>
             <DialogContentText>なまえをいれてね</DialogContentText>
             <TextField
+              value={this.state.username}
+              onChange={this.handleChange}
               autoFocus
               margin="dense"
               id="name"

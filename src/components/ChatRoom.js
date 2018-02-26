@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import List, { ListItem } from 'material-ui/List';
 import Comment from './Comment';
-import CommentInput from './CommentInput';
-import Button from 'material-ui/Button';
 import Divider from 'material-ui/Divider';
-import LoginModal from './LoginModal';
+import LoginModal from '../containers/LoginModal';
+import CommentInput from '../containers/CommentInput';
 
 class ChatRoom extends Component {
   constructor(props) {
@@ -15,24 +14,10 @@ class ChatRoom extends Component {
     };
   }
   render() {
-    const mockData = [
-      {
-        username: 'aaa',
-        comment: 'hoge',
-      },
-      {
-        username: 'bbb',
-        comment: 'huga',
-      },
-      {
-        username: 'aaa',
-        comment: 'hogehoge',
-      },
-    ];
     return (
       <div>
         <List>
-          {mockData.map(item => (
+          {this.props.chat.comments.map(item => (
             <React.Fragment>
               <Comment {...item} />
               <Divider />
@@ -40,9 +25,7 @@ class ChatRoom extends Component {
           ))}
         </List>
         <LoginModal isLogedIn={this.state.isLogedIn} />
-        <Button variant="raised" color="primary">
-          Hello World
-        </Button>
+        {this.props.username}
         <CommentInput />
       </div>
     );

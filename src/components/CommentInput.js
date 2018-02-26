@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
 import Icon from 'material-ui/Icon';
+import IconButton from 'material-ui/IconButton';
 
 const styles = {
   submit: {
@@ -25,6 +26,10 @@ class CommentInput extends Component {
     });
   };
 
+  handleClick = () => {
+    this.props.post(this.state.value);
+  };
+
   render() {
     return (
       <div style={styles.submit}>
@@ -33,7 +38,9 @@ class CommentInput extends Component {
           value={this.state.value}
           onChange={this.handleChange}
         />
-        <Icon>send</Icon>
+        <IconButton onClick={this.handleClick}>
+          <Icon>send</Icon>
+        </IconButton>
       </div>
     );
   }

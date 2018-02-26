@@ -1,5 +1,4 @@
 import firebase from 'firebase';
-import firebaseApp from '../firebase';
 
 const LOGIN = 'user/LOGIN';
 const LOGOUT = 'user/LOGOUT';
@@ -78,7 +77,7 @@ const updateUsername = username => {
 // ここからふくざつ
 const anonymousLogin = () => {
   return dispatch => {
-    firebaseApp
+    firebase
       .auth()
       .signInAnonymously()
       .catch(function(error) {

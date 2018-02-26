@@ -1,4 +1,5 @@
-import firebase from '../firebase';
+import firebase from 'firebase';
+import firebaseApp from '../firebase';
 
 const LOGIN = 'user/LOGIN';
 const LOGOUT = 'user/LOGOUT';
@@ -76,9 +77,8 @@ const updateUsername = username => {
 
 // ここからふくざつ
 const anonymousLogin = () => {
-  console.log(123);
   return dispatch => {
-    firebase
+    firebaseApp
       .auth()
       .signInAnonymously()
       .catch(function(error) {
@@ -91,4 +91,15 @@ const anonymousLogin = () => {
       });
   };
 };
-export { login, logout, error, updateUsername, anonymousLogin };
+
+const googleLogin = () => {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  firebase.auth().signInWithRedirect(provider);
+
+  // 今回は特に何もしない
+  return {
+    type: 'GOOGLE_LOGIN',
+  };
+};
+
+export { login, logout, error, updateUsername, anonymousLogin, googleLogin };

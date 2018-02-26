@@ -26,7 +26,6 @@ export default class FormDialog extends React.Component {
   };
   handleClose = () => {
     this.setState({ open: false });
-    this.props.updateUsername(this.state.username);
   };
   handleChange = e => {
     this.setState({ username: e.target.value });
@@ -52,7 +51,13 @@ export default class FormDialog extends React.Component {
               匿名認証
               <Icon>face</Icon>
             </Button>
-
+            <Divider />
+            <Button
+              variant="raised"
+              color="secondary"
+              onClick={() => this.props.googleLogin()}>
+              Google認証
+            </Button>
             <Divider />
 
             <DialogContentText>なまえをいれてね</DialogContentText>

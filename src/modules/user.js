@@ -1,5 +1,4 @@
 import firebase from 'firebase';
-import firebaseApp from '../firebase';
 
 const LOGIN = 'user/LOGIN';
 const LOGOUT = 'user/LOGOUT';

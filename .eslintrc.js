@@ -6,6 +6,7 @@ module.exports = {
       jsx: true,
     },
   },
+  parser: 'babel-eslint',
   env: {},
   plugins: ['react', 'prettier'],
   rules: {

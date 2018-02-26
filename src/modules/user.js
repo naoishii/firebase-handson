@@ -77,29 +77,9 @@ const updateUsername = username => {
 
 // ここからふくざつ
 const anonymousLogin = () => {
-  return dispatch => {
-    firebaseApp
-      .auth()
-      .signInAnonymously()
-      .catch(function(error) {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-
-        console.log(errorCode, errorMessage);
-        dispatch(error());
-      });
-  };
+  return dispatch => {};
 };
 
-const googleLogin = () => {
-  const provider = new firebase.auth.GoogleAuthProvider();
-  firebase.auth().signInWithRedirect(provider);
-
-  // 今回は特に何もしない
-  return {
-    type: 'GOOGLE_LOGIN',
-  };
-};
+const googleLogin = () => {};
 
 export { login, logout, error, updateUsername, anonymousLogin, googleLogin };

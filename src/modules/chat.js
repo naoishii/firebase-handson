@@ -55,7 +55,7 @@ const replaceComments = comments => {
     },
   };
 };
-const post = comment => {
+const post = message => {
   return (dispatch, getState) => {
     const username = getState().user.username;
     dispatch({
@@ -63,8 +63,8 @@ const post = comment => {
       payload: {
         comments: [
           {
-            username: username,
-            comment,
+            username,
+            message,
           },
         ],
       },

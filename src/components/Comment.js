@@ -5,8 +5,8 @@ import Avatar from 'material-ui/Avatar';
 const Comment = props => {
   return (
     <ListItem>
-      <Avatar src="" />
-      <ListItemText primary={props.username} secondary={props.comment} />
+      <Avatar src="" style={{ backgroundColor: '#eee' }} />
+      <ListItemText primary={props.username} secondary={props.message} />
     </ListItem>
   );
 };

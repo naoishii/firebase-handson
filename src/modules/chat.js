@@ -1,18 +1,19 @@
 const APPEND_COMMENTS = 'chat/APPEND_COMMENTS';
+const REPLACE_COMMENTS = 'chat/REPLACE_COMMENTS';
 
 const initialState = {
   comments: [
     {
       username: 'aaa',
-      comment: 'hoge',
+      message: 'hoge',
     },
     {
       username: 'bbb',
-      comment: 'huga',
+      message: 'huga',
     },
     {
       username: 'aaa',
-      comment: 'hogehoge',
+      message: 'hogehoge',
     },
   ],
 };
@@ -23,6 +24,12 @@ export default function reducer(state = initialState, action = {}) {
       return {
         ...state,
         comments: [...state.comments, ...action.payload.comments],
+      };
+    }
+    case REPLACE_COMMENTS: {
+      return {
+        ...state,
+        comments: action.payload.comments,
       };
     }
 
@@ -40,6 +47,14 @@ const appendComments = comments => {
   };
 };
 
+const replaceComments = comments => {
+  return {
+    type: REPLACE_COMMENTS,
+    payload: {
+      comments,
+    },
+  };
+};
 const post = comment => {
   return (dispatch, getState) => {
     const username = getState().user.username;

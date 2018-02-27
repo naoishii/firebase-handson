@@ -62,7 +62,6 @@ const fetchComments = comments => {
   return async dispatch => {
     const querySnapshot = await db
       .collection('chat')
-      .where('username', '==', 'Naoya Ishii')
       .orderBy('date')
       .get();
 

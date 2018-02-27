@@ -6,7 +6,7 @@ const Comment = props => {
   return (
     <ListItem>
       <Avatar src="" />
-      <ListItemText primary={props.username} secondary={props.comment} />
+      <ListItemText primary={props.username} secondary={props.message} />
     </ListItem>
   );
 };

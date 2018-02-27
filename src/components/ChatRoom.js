@@ -13,6 +13,11 @@ class ChatRoom extends Component {
       isLogedIn: false,
     };
   }
+
+  componentDidMount() {
+    this.props.fetchComments();
+  }
+
   render() {
     return (
       <div>

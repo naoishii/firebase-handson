@@ -1,5 +1,8 @@
 import firebase from 'firebase';
-import * as userAction from './modules/user';
+import * as userActions from './modules/user';
+import * as chatActions from './modules/chat';
+// firestoreを利用するためには↓が必要
+import 'firebase/firestore';
 
 const firebaseApp = firebase.initializeApp({
   apiKey: 'AIzaSyBSLu5Zg94ZKPPVhUcYamKOM9f3jMdfA40',
@@ -10,6 +13,8 @@ const firebaseApp = firebase.initializeApp({
   messagingSenderId: '832140685792',
 });
 
+const db = firebase.firestore();
+
 const connectFirebase = store => {
   firebase.auth().onAuthStateChanged(user => {
     console.log(user);
@@ -18,15 +23,26 @@ const connectFirebase = store => {
       const isAnonymous = user.isAnonymous;
       const uid = user.uid;
 
-      store.dispatch(userAction.login(uid));
-      store.dispatch(userAction.updateUsername(user.displayName || uid));
+      store.dispatch(userActions.login(uid));
+      store.dispatch(userActions.updateUsername(user.displayName || uid));
     } else {
       // User is signed out.
       const uid = user.uid;
-      store.dispatch(userAction.logout(uid));
+      store.dispatch(userActions.logout(uid));
     }
   });
+
+  db
+    .collection('chat')
+    .orderBy('date')
+    .onSnapshot(querySnapshot => {
+      const comments = [];
+      querySnapshot.forEach(doc => {
+        comments.push(doc.data());
+      });
+      store.dispatch(chatActions.replaceComments(comments));
+    });
 };
 
 export default firebaseApp;
-export { connectFirebase };
+export { connectFirebase, db };

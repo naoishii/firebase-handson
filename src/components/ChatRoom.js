@@ -20,7 +20,7 @@ class ChatRoom extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{ marginBottom: '80px' }}>
         <List>
           {this.props.chat.comments.map(item => (
             <React.Fragment>

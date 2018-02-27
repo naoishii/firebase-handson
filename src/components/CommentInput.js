@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
+import { FormControl } from 'material-ui/Form';
 import Icon from 'material-ui/Icon';
 import IconButton from 'material-ui/IconButton';
 
 const styles = {
   submit: {
     position: 'fixed',
-    bottom: '30px',
+    bottom: '20px',
+    width: '100%',
     backgroundColor: '#ddd',
   },
 };
@@ -16,7 +18,7 @@ class CommentInput extends Component {
     super(props);
 
     this.state = {
-      value: 'Property Value',
+      value: '',
     };
   }
 
@@ -33,11 +35,13 @@ class CommentInput extends Component {
   render() {
     return (
       <div style={styles.submit}>
-        <TextField
-          id="text-field-controlled"
-          value={this.state.value}
-          onChange={this.handleChange}
-        />
+        <FormControl style={{ width: '80%', marginLeft: '10px' }}>
+          <TextField
+            value={this.state.value}
+            placeholder="Placeholder"
+            onChange={this.handleChange}
+          />
+        </FormControl>
         <IconButton onClick={this.handleClick}>
           <Icon>send</Icon>
         </IconButton>
